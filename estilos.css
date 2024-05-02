@@ -1,0 +1,392 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Readex Pro', sans-serif;
+	color: #1b3231;
+}
+
+
+.hero {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	min-height: 35vh;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: 100px auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.container::after {
+	content: "";
+	width: 2px;
+	height: 100%;
+	background: #1b3231;
+	position: absolute;
+	top: 0;
+	left: calc(50% - 1px);
+	z-index: 1;
+}
+
+.evento {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 200px;
+	position: relative;
+}
+
+.evento::after {
+	content: "";
+	display: block;
+	width: 14px;
+	height: 14px;
+	border-radius: 100px;
+	background: #DCDFD9;
+	border: 2px solid #1b3231;
+	position: absolute;
+	z-index: 2;
+	top: calc(50% - 9px);
+	left: calc(50% - 9px);
+}
+
+.fecha {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	width: calc(42% + 20px);
+	font-size: 32px;
+	font-weight: normal;
+}
+
+.foto {
+	width: 42%;
+	border: 10px solid #fff;
+	position: relative;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.foto::after {
+	content: "";
+	display: block;
+	border: 20px solid transparent;
+	border-left: 20px solid #fff;
+	position: absolute;
+	right: -50px;
+	top: calc(50% - 20px);
+}
+
+.foto img {
+	width: 100%;
+	vertical-align: top;
+}
+
+.evento:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+.evento:nth-child(even) .fecha {
+	justify-content: end;
+}
+
+.evento:nth-child(even) .foto::after {
+	content: "";
+	border: 20px solid transparent;
+	border-right: 20px solid #fff;
+	right: initial;
+	left: -50px;
+}
+
+.buttonc {
+	--width: 100px;
+	--height: 35px;
+	--tooltip-height: 35px;
+	--tooltip-width: 90px;
+	--gap-between-tooltip-to-button: 18px;
+	--button-color: #222;
+	--tooltip-color: #fff;
+	margin-left: 15px;
+	width: var(--width);
+	height: var(--height);
+	background: var(--button-color);
+	position: relative;
+	text-align: center;
+	border-radius: 0.45em;
+	font-family: "Arial";
+	transition: background 0.3s;
+  }
+  
+  .buttonc::before {
+	position: absolute;
+	content: attr(data-tooltip);
+	width: var(--tooltip-width);
+	height: var(--tooltip-height);
+	background-color: #555;
+	font-size: 0.9rem;
+	color: #fff;
+	border-radius: .25em;
+	line-height: var(--tooltip-height);
+	bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+	left: calc(50% - var(--tooltip-width) / 2);
+  }
+  
+  .buttonc::after {
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #555;
+	left: calc(50% - 10px);
+	bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+  }
+  
+  .buttonc::after,.buttonc::before {
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s;
+  }
+  
+  .texta {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	justify-content: center;
+  }
+  
+  .buttonc-wrapper,.texta,.iconc {
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	color: #fff;
+  }
+  
+  .texta {
+	top: 0
+  }
+  
+  .texta,.iconc {
+	transition: top 0.5s;
+  }
+  
+  .iconc {
+	color: #fff;
+	top: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .iconc svg {
+	width: 24px;
+	height: 24px;
+  }
+  
+  .buttonc:hover {
+	background: #222;
+  }
+  
+  .buttonc:hover .texta {
+	top: -100%;
+  }
+  
+  .buttonc:hover .iconc {
+	top: 0;
+  }
+  
+  .buttonc:hover:before,.buttonc:hover:after {
+	opacity: 1;
+	visibility: visible;
+  }
+  
+  .buttonc:hover:after {
+	bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+  }
+  
+  .buttonc:hover:before {
+	bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+  }
+  
+  
+  
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	transition: height 0.5s;
+  }
+  
+  .footer-content {
+	display: flex;
+	justify-content: space-between;
+  }
+  
+  .footer-info, .social-media {
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+  }
+  
+  .social-media ul {
+	padding: 0;
+	list-style-type: none;
+  }
+  
+  .social-media ul li {
+	margin-bottom: 5px;
+  }
+  
+  .social-media ul li a {
+	color: #fff;
+	text-decoration: none;
+  }
+  
+  footer.expanded {
+	height: auto;
+  }
+  
+  .main {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	margin-right: 150px;
+  }
+  
+  .up {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+  }
+  
+  .down {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5em;
+  }
+  
+  .card1 {
+	width: 90px;
+	height: 90px;
+	outline: none;
+	border: none;
+	background: white;
+	border-radius: 90px 5px 5px 5px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	transition: .2s ease-in-out;
+  }
+  
+  .instagram {
+	margin-top: 1.5em;
+	margin-left: 1.2em;
+	fill: #cc39a4;
+  }
+  
+  .card2 {
+	width: 90px;
+	height: 90px;
+	outline: none;
+	border: none;
+	background: white;
+	border-radius: 5px 90px 5px 5px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	transition: .2s ease-in-out;
+  }
+  
+  .facebook {
+	margin-top: 1.5em;
+	margin-left: -.9em;
+	fill: #03A9F4;
+  }
+  
+  .card3 {
+	width: 90px;
+	height: 90px;
+	outline: none;
+	border: none;
+	background: white;
+	border-radius: 5px 5px 5px 90px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	transition: .2s ease-in-out;
+  }
+  
+  .whatsapp {
+	margin-top: -.6em;
+	margin-left: 1.2em;
+	fill: #00ff00;
+  }
+  
+  .card4 {
+	width: 90px;
+	height: 90px;
+	outline: none;
+	border: none;
+	background: white;
+	border-radius: 5px 5px 90px 5px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	transition: .2s ease-in-out;
+  }
+  
+  .gmail {
+	margin-top: -.9em;
+	margin-left: -1.2em;
+	fill: #f14336;
+  }
+  
+  .card1:hover {
+	cursor: pointer;
+	scale: 1.1;
+	background-color: #cc39a4;
+  }
+  
+  .card1:hover .instagram {
+	fill: white;
+  }
+  
+  .card2:hover {
+	cursor: pointer;
+	scale: 1.1;
+	background-color: #1877f2;
+  }
+  
+  .card2:hover .facebook {
+	fill: white;
+  }
+  
+  .card3:hover {
+	cursor: pointer;
+	scale: 1.1;
+	background-color: #00ff00;
+  }
+  
+  .card3:hover .whatsapp {
+	fill: white;
+  }
+  
+  .card4:hover {
+	cursor: pointer;
+	scale: 1.1;
+	background-color: #FF0004;
+  }
+  
+  .card4:hover .gmail {
+	fill: white;
+  }
+  
